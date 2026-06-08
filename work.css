@@ -143,4 +143,10 @@
     .project-card-img {
         object-fit: cover;
     }
+
+    .project-meta {
+        font-size: 10px;
+    }
 }
+
+
