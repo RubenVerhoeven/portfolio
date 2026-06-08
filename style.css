@@ -769,6 +769,14 @@ h2 {
     }
 
     .site-header {
-        padding-top: 52px;
+        padding-top: 28px;
+    }
+
+    .quote-text br {
+        display: none;
+    }
+
+    .footer-bottom {
+        padding-bottom: 40px;
     }
 }
