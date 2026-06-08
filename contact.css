@@ -1,0 +1,123 @@
+.contact-eyebrow {
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #FF8533;
+    margin-bottom: 16px;
+}
+
+.contact-title {
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 700;
+    color: #202833;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+    padding-bottom: 0.4em;
+}
+
+.contact-row:hover .contact-row-label {
+    color: #EAE0C8;
+    opacity: 0.5;
+}
+
+.contact-row:hover .contact-row-value {
+    color: #FF8533;
+}
+
+.contact-row:hover .contact-row-arrow {
+    transform: translate(4px, -4px);
+    color: #FF8533;
+}
+
+.contact-links {
+    margin-bottom: 2em;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    padding: 32px 16px;
+    border-bottom: 1.5px solid #202833;
+    text-decoration: none;
+    gap: 32px;
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.contact-row:hover {
+    background: #202833;
+    transform: scale(1.02);
+}
+
+.contact-row:first-child {
+    border-top: 1.5px solid #202833;
+}
+
+.contact-row-label {
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #202833;
+    opacity: 0.45;
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.contact-row-value {
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #202833;
+    letter-spacing: -0.01em;
+    flex: 1;
+}
+
+.contact-row-arrow {
+    font-size: 28px;
+    color: #202833;
+    transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1), color 0.2s ease;
+    flex-shrink: 0;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.site-footer {
+    border-top: none;
+}
+
+.cta-button {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+    .contact-title {
+        font-size: clamp(48px, 12vw, 80px);
+    }
+
+    .contact-row-value {
+        font-size: 12px;
+    }
+
+    .contact-row-label {
+        width: 70px;
+        font-size: 11px;
+    }
+
+    .contact-row-arrow {
+        font-size: 20px;
+    }
+}

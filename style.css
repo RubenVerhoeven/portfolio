@@ -1,0 +1,774 @@
+@font-face {
+  font-family: 'Manrope';
+  src: url('fonts/Manrope-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('fonts/neue-montreal-bold.otf') format('opentype');
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+.cta-button,
+.btn-filled,
+.btn-outline,
+.social-icon,
+.back-to-top,
+.contact-row,
+.project-card,
+.nav-links a,
+.nav-socials a,
+.project-view-btn,
+.toggle-btn {
+    transition: transform 0.2s ease;
+}
+
+.cta-button:hover,
+.btn-filled:hover,
+.btn-outline:hover,
+.social-icon:hover,
+.back-to-top:hover,
+.project-view-btn:hover,
+.toggle-btn:hover {
+    transform: scale(1.05);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #EAE0C8;
+  font-family: 'Manrope', sans-serif;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.site-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0;
+}
+
+.site-header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #202833;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-logo img {
+    height: 36px;
+    width: auto;
+}
+
+button.hamburger {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 2.5px;
+  background: #202833;
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.hamburger.open span {
+    background: #EAE0C8;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+main {
+  padding: 40px 0 0;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.h1-home {
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.title-big {
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: clamp(90px, 13vw, 140px);
+  font-weight: 700;
+  color: #202833;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.93;
+  width: 100%;
+  text-align: center;
+}
+
+.title-overlay {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(68px, 10vw, 108px);
+  color: #FF8533;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-transform: none;
+  text-align: center;
+  position: absolute;
+  top: 44.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+/* SKILLS / FILTERS */
+.skills-homepage {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+  gap: 64px;
+  width: 100%; 
+}
+
+.pill {
+  padding: 8px 32px;
+  font-size: 17px;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 2px solid #202833;
+  user-select: none;
+  font-family: 'Neue Montreal', sans-serif;
+}
+
+.pill.filled {
+  background-color: #202833;
+  color: #EAE0C8;
+}
+
+.pill.outline {
+  background-color: transparent;
+  color: #202833;
+}
+
+.pill-hover-img {
+  display: none;
+}
+
+.pill-follow-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 340px;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -60%);
+}
+
+.pill-follow-img.visible {
+  opacity: 1;
+}
+
+.pill-follow-img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.scroll-hint {
+  font-family: 'Neue Montreal', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 140px 0 140px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #202833;
+}
+
+.scroll-hint::before,
+.scroll-hint::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1.5px;
+  background: #202833;
+}
+
+h1 {
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: #4B2E21;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  padding-bottom: 16px;
+}
+
+h2 {
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #4B2E21;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  padding-bottom: 32px;
+}
+
+/* SLIDER */
+.slider-section {
+  width: 100vw;
+  margin-left: calc(-5%);
+  overflow: hidden;
+  margin-top: 20px;
+  position: relative;
+  padding: 16px 0;
+}
+
+.slider-section::before,
+.slider-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 180px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.slider-section::before {
+  left: 0;
+  background: linear-gradient(to right, #EAE0C8, transparent);
+}
+
+.slider-section::after {
+  right: 0;
+  background: linear-gradient(to left, #EAE0C8, transparent);
+}
+
+.slider-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  will-change: transform;    
+  padding: 8px 0;
+}
+
+.slide img {
+  height: 420px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 16px;
+}
+
+/* QUOTE */
+.quote-section {
+  padding: 100px 0;
+  text-align: center;
+}
+
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  color: #202833;
+  line-height: 1.4;
+  margin: 0 auto;
+}
+
+/* CTA */
+.cta-section {
+  text-align: center;
+  padding: 60px 0 100px;
+}
+
+.cta-title {
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #202833;
+}
+
+.cta-sub {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  color: #202833;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 14px 36px;
+  background-color: #202833;
+  color: #EAE0C8;
+  border-radius: 999px;
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.site-footer {
+  border-top: 2px solid #202833;
+  padding: 48px 0 32px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.footer-profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-name {
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #202833;
+}
+
+.footer-role,
+.footer-location {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  color: #202833;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid #202833;
+  border-radius: 8px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-bottom p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  color: #202833;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: calc(5%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #202833;
+  border-radius: 50%;
+  text-decoration: none;
+  z-index: 999;
+}
+
+.back-to-top svg path {
+  stroke: #FF8533;
+}
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #202833;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    clip-path: inset(0 0 0 100%);
+    transition: clip-path 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+    pointer-events: none;
+}
+
+.nav-overlay.active {
+    clip-path: inset(0 0 0 0%);
+    pointer-events: all;
+}
+
+.nav-vertical-name {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 62px;
+    color: #EAE0C8;
+    writing-mode: vertical-lr;
+    line-height: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0px;
+    padding-left: 16px;;
+}
+
+.nav-links {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 48px;
+}
+
+.nav-links a {
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #EAE0C8;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    transition: color 0.2s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #FF8533;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-links a:hover {
+    color: #EAE0C8;
+}
+
+.nav-socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 48px;
+}
+
+.nav-socials a {
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #EAE0C8;
+  text-decoration: none;
+}
+
+.nav-socials a:hover {
+  color: #FF8533;
+}
+
+.nav-footer {
+  position: absolute;
+  bottom: 32px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  color: #EAE0C8;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+}
+
+* {
+  cursor: none;
+}
+
+.cursor {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background-color: #FF8533;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease;
+}
+
+.animate-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.animate-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide {
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.slide:hover {
+  transform: scale(1.05);
+}
+
+.title-overlay.animate-in {
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.7s ease;
+}
+
+.title-overlay.animate-in.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.title-overlay {
+  z-index: 1;
+}
+
+.toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Neue Montreal', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #202833;
+  background: none;
+  border: 2px solid #202833;
+  border-radius: 999px;
+  padding: 10px 28px;
+  cursor: none;
+  margin-bottom: 32px;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.toggle-btn:hover {
+  background: #202833;
+  color: #EAE0C8;
+}
+
+.collapsible {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease;
+}
+
+.collapsible.open {
+  max-height: 9999px;
+}
+
+.btn-filled,
+.btn-outline {
+  transition: transform 0.2s ease;
+}
+
+.btn-filled:hover,
+.btn-outline:hover {
+  transform: scale(1.05);
+}
+
+.cta-button {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        max-width: 92%;
+    }
+
+    .header-logo img {
+        height: 28px;
+    }
+
+    .h1-home {
+        margin-top: 0.5em;
+    }
+
+    .title-big {
+        font-size: clamp(48px, 12vw, 80px);
+    }
+
+    .title-overlay {
+        font-size: clamp(36px, 9vw, 60px);
+    }
+
+    .skills-homepage {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .pill {
+        padding: 6px 18px;
+        font-size: 13px;
+    }
+
+    .scroll-hint {
+        margin: 60px 0 60px;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    .slider-section {
+        margin-left: calc(-4%);
+    }
+
+    .slide img {
+        height: 260px;
+    }
+
+    .quote-section {
+        padding: 60px 0;
+    }
+
+    .quote-text {
+        font-size: 20px;
+    }
+
+    .cta-sub br {
+        display: none;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+    }
+
+    .nav-links a {
+        font-size: 32px;
+    }
+
+    .nav-vertical-name {
+        font-size: 40px;
+    }
+
+    .site-header {
+        padding-top: 52px;
+    }
+}
